@@ -1,4 +1,4 @@
-# Solidity Minimalist Primer: 7. Mapping
+# Solidity Minimalist Primer: Tutorial 7. Mapping
 
 Recently, I have been relearning the `Solidity` programming language, consolidating the finer details, and also writing a "Solidity Minimalist Primer" for newbies to learn and use (advanced programmers can find another tutorial). Lectures are updated 1~3 times weekly. 
 
