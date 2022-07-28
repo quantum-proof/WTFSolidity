@@ -15,7 +15,7 @@ All source code and tutorial notes are open source and available on GitHub (At 1
 
 Because such variables are complex and take up a lot of storage space, we must declare the location of the data storage when using them.
 
-## data location
+## Data location
 There are three types of solidity data storage locations:`storage`, `memory` and `calldata`. `gas` cost is different for different storage locations. 
 
 The data of `storage` type is stored on the chain, similar to the hard disk of a computer, and consumes a lot of `gas`；
@@ -73,7 +73,7 @@ When different storage types are assigned to each other, sometimes an independen
 
 4. Otherwise, assigning a variable to `storage` will create separate copies, and modifying one will not affect the other.
 
-## variable scope
+## Variable scope
 There are three types of variables in `Solidity` according to their scope, which are state variables, local variables and global variables.
 ### 1. State variables
 State variables are variables whose data is stored on the chain and can be accessed by all in-contract functions, `gas` consumption is high. 
@@ -135,6 +135,7 @@ Below are some commonly used global variables, see this for a more complete list
 
 **Example:**
 ![5-4.png](./img/5-4.png)
+
 ## Summarize
 In Tutorial 4, we covered reference types, data locations and variable scope in `solidity`. The focus is on the usage of the three keywords `storage`, `memory` and `calldata`. 
 
