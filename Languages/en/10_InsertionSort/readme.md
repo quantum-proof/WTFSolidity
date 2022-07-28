@@ -1,15 +1,16 @@
-# Solidity Minimalist Primer: 10. Control flow, and Solidity Implementation of Insertion Sort
+# Solidity Minimalist Primer: Tutorial 10. Control flow, and `Solidity` Implementation of Insertion Sort
 
-Recently, I have been relearning the Solidity, consolidating the finer details, and also writing a "Solidity Minimalist Primer" for newbies to learn and use from (advanced programmers can find another tutorial). Lectures are updated 1~3 times weekly. 
+Recently, I have been relearning the `Solidity` programming language, consolidating the finer details, and also writing a "Solidity Minimalist Primer" for newbies to learn and use (advanced programmers can find another tutorial). Lectures are updated 1~3 times weekly. 
 
 Everyone is welcomed to follow my Twitter: [@0xAA_Science](https://twitter.com/0xAA_Science)
 
-WTF Solidity Discord: [Link](https://discord.gg/5akcruXrsk)
+WTF Academy Discord: [Link](https://discord.gg/5akcruXrsk)
 
-All codebase and tutorial notes are open source and available on GitHub (At 1024 repo stars, course certification is unlocked. At 2048 repo stars, community NFT is unlocked.): [github.com/AmazingAng/WTFSolidity](https://github.com/AmazingAng/WTFSolidity)
+All source code and tutorial notes are open source and available on GitHub (At 1024 repo stars, course certification is unlocked. At 2048 repo stars, community NFT is unlocked.): [github.com/AmazingAng/WTFSolidity](https://github.com/AmazingAng/WTFSolidity)
 
 -----
-In this section, we will introduce the control flow in `solidity`, and how to use `solidity` to implement Insertion Sort (`InsertionSort`),a program that looks simple but is actually bug-prone.
+
+In this section, we will introduce the control flow in `Solidity`, and how to use `Solidity` to implement Insertion Sort (`InsertionSort`), a program that looks simple but is actually bug-prone.
 
 ## Control Flow
 
@@ -65,7 +66,8 @@ function doWhileTest() public pure returns(uint256){
 ```
 
 5. `Ternary operator`
-The ternary operator is the only operator in `solidity` that accepts three operands ： a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an if...else statement.
+
+The ternary operator is the only operator in `Solidity` that accepts three operands ： a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an if...else statement.
 
 ```solidity
 // ternary/conditional operator
@@ -79,7 +81,7 @@ In addition, there are `continue` (immediately enter the next loop) and `break` 
 
 ## `Solidity` Implementation of Insertion Sort
 
-### Written up front: Over 90% of people who write the insertion algorithm with `solidity` will get it wrong.
+### Written up front: Over 90% of people who write the insertion algorithm with `Solidity` will get it wrong.
 
 ### Insertion Sort
 
@@ -90,7 +92,8 @@ The schematic is shown below:
 
 ![InsertionSort](https://i.pinimg.com/originals/92/b0/34/92b034385c440e08bc8551c97df0a2e3.gif)
 
-### `python`Implimentation of `InsertionSort`
+### `Python` implimentation of `InsertionSort`
+
 We may first look at the python implimentation of Insertion Sort：
 
 ```python
@@ -104,9 +107,10 @@ def insertionSort(arr):
 				j -= 1
 		arr[j+1] = key
 ```
-### `BUG` shows up after rewriting to `solidity`! 
-`python` implimentation of Insertion Sort can be completed in only 8 lines. 
-Then we rewrite it into `solidity` code, by converting functions, variables, loops, etc. accordingly, and only need 9 lines of code:
+### `BUG` shows up after rewriting to `Solidity`! 
+`Python` implimentation of Insertion Sort can be completed in only 8 lines. 
+Then we rewrite it into `Solidity` code, by converting functions, variables, loops, etc. accordingly, and only need 9 lines of code:
+
 ``` solidity
     // Insertion Sort(Wrong version）
     function insertionSortWrong(uint[] memory a) public pure returns(uint[] memory) {
@@ -123,20 +127,23 @@ Then we rewrite it into `solidity` code, by converting functions, variables, loo
         return(a);
     }
 ```
+
 Then we put the modified version into `remix` and run by entering `[2, 5, 3, 1]`. BOOM! There are `bugs`! 
 After correcting it for a long time, I still could not find where the `bug` is. 
-I went to `google` to search for "solidity insertion sort", and found that the insertion algorithm tutorials written with `solidity` on the Internet are all wrong, such as: [Sorting in Solidity without Comparison](https://medium.com/coinmonks/sorting-in-solidity-without-comparison-4eb47e04ff0d)
+I went to `google` to search for "Solidity insertion sort", and found that the insertion algorithm tutorials written with `Solidity` on the Internet are all wrong, such as: [Sorting in Solidity without Comparison](https://medium.com/coinmonks/sorting-in-solidity-without-comparison-4eb47e04ff0d)
 
 Remix decoded mistake output is:
 ![10-1](./img/10-1.jpg)
 
 ### Correct Version of `Solidity InsertionSort`
+
 After a few hours, with the help of a friend in the `Dapp-Learning` community, we finally found the problem. 
-The most commonly used variable type in `solidity` is `uint`, which is a positive integer. 
+The most commonly used variable type in `Solidity` is `uint`, which is a positive integer. 
 If it takes a negative value, an error `underflow` will be reported. 
 In the insertion algorithm, the variable `j` may get `-1`, resulting the corresponding error.
 
 So, we just need to add 1 to `j` so that it cannot take a negative value. The correct version is:
+
 ```solidity
     // Insertion Sort（Correct Version）
     function insertionSort(uint[] memory a) public pure returns(uint[] memory) {
@@ -153,13 +160,11 @@ So, we just need to add 1 to `j` so that it cannot take a negative value. The co
         return(a);
     }
 ```
+
 Result of correct code：
 
-!["Input [2,5,3,1] Output[1,2,3,5]
-"](https://images.mirror-media.xyz/publication-images/S-i6rwCMeXoi8eNJ0fRdB.png?height=300&width=554)
+!["Input [2,5,3,1] Output[1,2,3,5]"](https://images.mirror-media.xyz/publication-images/S-i6rwCMeXoi8eNJ0fRdB.png?height=300&width=554)
 
-## Summary
-In this lecture, we introduced the control flow in `solidity` and wrote Insertion Sort in `solidity`. 
-`Solidity` looks simple but there are many pitfalls hidden. 
-Every month, there are projects that lose tens of millions or even hundreds of millions of dollars because of these small `Bugs`. 
-Master the basics and keep practicing to write better `solidity` code.
+## Tutorial summary
+
+In this lecture, we introduced control flow and Insertion Sort in `Solidity`. `Solidity` looks simple but there are many pitfalls hidden. Every month, there are projects that lose tens of millions or even hundreds of millions of dollars because of these small `Bugs`. Master the basics and keep practicing to write better `solidity` code.
