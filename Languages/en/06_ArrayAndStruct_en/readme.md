@@ -1,18 +1,19 @@
 # Solidity Minimalist Primer: Tutorial 6. reference type, array, struct
 
-Recently, I have been relearning the Solidity, consolidating the finer details, and also writing a "Solidity Minimalist Primer" for newbies to learn and use from (advanced programmers can find another tutorial). Lectures are updated 1 o 3 times weekly. 
+Recently, I have been relearning the `Solidity` programming language, consolidating the finer details, and also writing a "Solidity Minimalist Primer" for newbies to learn and use (advanced programmers can find another tutorial). Lectures are updated 1~3 times weekly. 
 
 Everyone is welcomed to follow my Twitter: [@0xAA_Science](https://twitter.com/0xAA_Science)
 
-WTF Solidity Discord server, herein contains the method to join the Chinese WeChat communinity: [Link](https://discord.gg/5akcruXrsk)
+WTF Academy Discord: [Link](https://discord.gg/5akcruXrsk)
 
-All codebase and tutorial notes are open source and available on GitHub (At 1024 repo stars, course certification is unlocked. At 2048 repo stars, community NFT is unlocked.): [github.com/AmazingAng/WTFSolidity](https://github.com/AmazingAng/WTFSolidity)
+All source code and tutorial notes are open source and available on GitHub (At 1024 repo stars, course certification is unlocked. At 2048 repo stars, community NFT is unlocked.): [github.com/AmazingAng/WTFSolidity](https://github.com/AmazingAng/WTFSolidity)
 
 -----
-In this lecture, we will introduce two important variable types in `solidity`: `array` and structure `struct`.
+
+In this lecture, we will introduce two important variable types in `Solidity`: `array` and structure `struct`.
 
 ## Array
-`Array` is a variable type commonly used by `solidity` to store a set of data (integers, bytes, addresses, etc.).
+`Array` is a variable type commonly used by `Solidity` to store a set of data (integers, bytes, addresses, etc.).
 
 There are two types of arrays: fixed-length arrays and variable-length arrays.：
 
@@ -93,5 +94,5 @@ There are two ways to assign values to structures:
 ![6-3.png](./img/6-3.png)
 
 ## Summarize
-In this lecture, we introduced the basic usage of array (`array`) and structure (`struct`) in solidity. In the next lecture, we will introduce the hash table in solidity - mapping (`mapping`)。
+In this lecture, we introduced the basic usage of array (`array`) and structure (`struct`) in `Solidity`. In the next lecture, we will introduce the hash table in `Solidity` - mapping (`mapping`)。
 
